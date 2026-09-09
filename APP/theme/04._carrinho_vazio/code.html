@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meu Carrinho - Milk Pink</title>
+<!-- Google Fonts: Poppins & Open Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Google Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#484a00",
+            "surface-container-high": "#efe6e8",
+            "error": "#ba1a1a",
+            "primary": "#8c005a",
+            "inverse-primary": "#ffafd1",
+            "surface-container-highest": "#e9e0e3",
+            "primary-fixed": "#ffd8e6",
+            "surface-container": "#f5ebee",
+            "secondary-container": "#f2dedb",
+            "surface-container-low": "#fbf1f4",
+            "inverse-on-surface": "#f8eef1",
+            "on-primary-fixed-variant": "#8b0059",
+            "outline": "#8b707a",
+            "on-secondary-container": "#6f615f",
+            "on-primary-fixed": "#3d0025",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fff8f9",
+            "on-error": "#ffffff",
+            "surface-variant": "#e9e0e3",
+            "background": "#fff8f9",
+            "on-primary-container": "#ffccdf",
+            "secondary-fixed-dim": "#d5c2c0",
+            "surface-dim": "#e1d8da",
+            "outline-variant": "#debec9",
+            "surface": "#fff8f9",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#e7eb0f",
+            "on-tertiary-fixed": "#1c1d00",
+            "on-secondary-fixed-variant": "#514442",
+            "on-background": "#1f1a1c",
+            "on-secondary-fixed": "#231918",
+            "surface-tint": "#b60076",
+            "secondary": "#695b59",
+            "tertiary-fixed-dim": "#cace00",
+            "primary-container": "#b70077",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#dee200",
+            "on-surface-variant": "#57404a",
+            "primary-fixed-dim": "#ffafd1",
+            "secondary-fixed": "#f2dedb",
+            "on-primary": "#ffffff",
+            "tertiary": "#494a00",
+            "inverse-surface": "#342f31",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1f1a1c",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#616300"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-2xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-xs": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.75rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-2xl": "3rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Open Sans"],
+            "headline-md": ["Poppins"],
+            "label-sm": ["Poppins"],
+            "body-md": ["Open Sans"],
+            "label-md": ["Poppins"],
+            "body-sm": ["Open Sans"],
+            "headline-lg": ["Poppins"],
+            "display-lg-mobile": ["Poppins"],
+            "display-lg": ["Poppins"],
+            "headline-sm": ["Poppins"],
+            "title-md": ["Poppins"],
+            "label-lg": ["Poppins"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-empty-glow {
+      box-shadow: 0 16px 40px -8px rgba(183, 0, 119, 0.12), 0 4px 16px -2px rgba(26, 22, 24, 0.04);
+    }
+    .item-card-shadow {
+      box-shadow: 0 4px 16px -2px rgba(183, 0, 119, 0.05), 0 2px 6px -1px rgba(26, 22, 24, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Focus Task Header: Cart Modal / Linear Screen with Close Action (Nav shell suppressed) -->
+<header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md px-gutter-mobile h-16 flex items-center justify-between shadow-sm">
+<button aria-label="Voltar para o cardápio" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+      Meu Carrinho
+    </h1>
+<button aria-label="Fechar carrinho" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<!-- Main Empty State Canvas -->
+<main class="flex-1 max-w-md w-full mx-auto px-gutter-mobile pt-space-md pb-space-xl flex flex-col items-center text-center">
+<!-- Tactile Empty Graphic Box with Image Placeholder & Icon Badge -->
+<div class="relative mt-space-sm mb-space-lg flex items-center justify-center">
+<!-- Glow ambient backdrop -->
+<div class="absolute w-56 h-56 rounded-full bg-secondary-container/40 blur-2xl -z-10"></div>
+<!-- Card Container holding Empty Illustration / Milk Pink Identity -->
+<div class="relative w-48 h-48 rounded-full bg-surface-container-lowest border border-outline-variant/40 custom-empty-glow flex items-center justify-center p-3 overflow-hidden">
+<img alt="Milk Pink Shake Cup" class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFwBJzVrDY1QiUmZPBOS6CxsAQaVdgOZ-Gbxjo96wmIW6OQX9w1Ruv1Yhyc6izPx0DpRuaiJsYei6VmMHBXJCcQ3Xxi9mrDxkzvky9jJDDpvJRzcXKP47IqYQQWrckM_6KH2Uzp-FV6zZzUdVaFme8-OhWr7UmxBd8Uyju3ADbgj1-s3CfoWU3krnNzDklsHgsqwqoICrfnvs0cj_D8yLxEPRyk_NW0eshOm0Mge-Su9WYtoTY5dm8RwTSSW6wXLSdsg"/>
+<!-- Badge Indicator for Empty Cart -->
+<div class="absolute bottom-2 right-4 bg-primary-container text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-md border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-label-sm w-4 h-4 rounded-full flex items-center justify-center border border-surface-container-lowest">0</span>
+</div>
+</div>
+</div>
+<!-- Expressive Typography Hierarchy -->
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary tracking-tight mb-space-xs">
+      Seu carrinho está vazio!
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-space-xl leading-relaxed">
+      Que tal experimentar nossos deliciosos milkshakes artesanais? Temos clássicos, especiais e opções veganas esperando por você.
+    </p>
+<!-- Prominent Primary Call To Action -->
+<a class="w-full max-w-xs h-[52px] bg-primary-container hover:opacity-95 text-on-primary rounded-full font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md active:scale-95 transition-all mb-space-2xl" href="#cardapio">
+<span class="material-symbols-outlined" data-icon="local_drink">local_drink</span>
+<span>Explorar Cardápio</span>
+</a>
+<!-- Quick Recommendations Section: 'Mais pedidos' -->
+<div class="w-full text-left">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Mais pedidos</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">1 toque para adicionar</span>
+</div>
+<!-- Two Horizontal Compact Recommendation Cards -->
+<div class="flex flex-col gap-space-sm w-full">
+<!-- Card 1: Chocolate Belga -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-lowest rounded-2xl border border-outline-variant/50 item-card-shadow transition-all hover:border-primary-container/40">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-xl overflow-hidden bg-secondary-container/40 flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A gourmet Belgian chocolate milkshake in an artisan clear glass cup topped with rich swirled whipped cream, dark chocolate drizzle, and delicate chocolate curls. The lighting is soft and studio-quality against a clean, light pastel pink backdrop, embodying a modern luxurious ice cream shop aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe7L9CIEGTQGOttGAp4zFMouCfpSROUANedo0uuDidvYKWmDFsEPRUiYJxU2OZXSc8kQTTorT3iRRBMlTXLHPojL485QQNQzJX3-5I2fc_Yt_wA4wUBiWL6M73gBjN_vBC38IhIMLRB4UJf8tzG6LbuHlaxa7Q2rnS-JazzWfZXhun-TuU6zyvqeKAzZ8r8BMYU0OWiwBN8e4WKHjATVWrlLNN-IgMrCY--MwURyJecvXFmw5lHxlZ"/>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Chocolate Belga</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cacau nobre 70% &amp; trufas</p>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 24,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Chocolate Belga ao carrinho" class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-90 hover:brightness-105 transition-all flex-shrink-0" onclick="triggerAddEffect(this)" type="button">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Card 2: Oreo Trufado -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-lowest rounded-2xl border border-outline-variant/50 item-card-shadow transition-all hover:border-primary-container/40">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-xl overflow-hidden bg-secondary-container/40 flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A decadent Oreo truffle milkshake served in a transparent cup with crushed black cookie crumbles along the inner glass, high whipped cream, and chocolate ganache dripping delightfully. The background is brightly illuminated with soft warm studio lighting in a light-mode vibrant dessert parlour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW0xtg3-uY8OOeVOYZ7NGGjw1SwO9YfSGvJuwIRSANmaZKMqWnFSIo2nPciJv-KagiMzNrZvxgvAko4WFNsfSxv1If4BuI512mmsY-dbgiKkzG_ZtzRSnlLjwwjQfCEtF_BNkB4TN5PSBlmmV2u5wkTAVgb-t3C_aht_4CTq6dKaXRpUN9tpIkJIrAIpbAMiQso-160rLfHBIVYzh8VIClXHSkXngkLHS3h4HMAAlKe9U56ABOmkB9"/>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Oreo Trufado</h4>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] px-1.5 py-0.5 rounded-full font-bold">Top 1</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Biscoito crocante &amp; calda</p>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 26,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Oreo Trufado ao carrinho" class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-90 hover:brightness-105 transition-all flex-shrink-0" onclick="triggerAddEffect(this)" type="button">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Atmospheric Light Feedback Toast Component -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px- space-md py-space-sm rounded-full font-label-md text-label-md shadow-xl flex items-center gap-2 opacity-0 pointer-events-none transition-opacity duration-300 z-50" id="quick-toast">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]" data-icon="check_circle">check_circle</span>
+<span id="toast-text">Item adicionado com sucesso!</span>
+</div>
+<script>
+    function triggerAddEffect(btn) {
+      const toast = document.getElementById('quick-toast');
+      toast.classList.remove('opacity-0');
+      toast.classList.add('opacity-100');
+      
+      const originalIcon = btn.querySelector('.material-symbols-outlined');
+      const prevIconText = originalIcon.textContent;
+      originalIcon.textContent = 'done';
+      
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+        originalIcon.textContent = prevIconText;
+      }, 1800);
+    }
+  </script>
+</body></html>

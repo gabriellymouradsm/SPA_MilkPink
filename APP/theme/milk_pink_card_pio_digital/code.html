@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milk Pink - Cardápio Digital</title>
+  <!-- Google Fonts: Poppins & Open Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    :root {
+      --primary: #B70077;
+      --primary-hover: #960062;
+      --bg-light: #FFEBE8;
+      --accent-yellow: #E2E600;
+      --accent-green: #D7F7E1;
+      --accent-cyan: #00C0CF;
+      --white: #FFFFFF;
+      --text-main: #2D2D2D;
+      --text-muted: #6B7280;
+      --border-color: #F1E4E8;
+      --font-title: 'Poppins', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+      --shadow-sm: 0 2px 8px rgba(183, 0, 119, 0.08);
+      --shadow-md: 0 6px 20px rgba(183, 0, 119, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background-color: #F8F9FA;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Container mobile */
+    #app-container {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      background-color: var(--white);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+      overflow-x: hidden;
+    }
+
+    /* Top Bar / Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 50;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .brand-logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .brand-title {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .cart-btn {
+      position: relative;
+      background: var(--bg-light);
+      border: none;
+      color: var(--primary);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s;
+    }
+
+    .cart-btn:active {
+      transform: scale(0.92);
+      background-color: #ffd8d3;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: var(--radius-full);
+      min-width: 20px;
+      text-align: center;
+      border: 2px solid var(--white);
+      animation: popBadge 0.3s ease;
+    }
+
+    @keyframes popBadge {
+      0% { transform: scale(0.5); }
+      80% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* Screen view wrapper with transitions */
+    main {
+      flex: 1;
+      position: relative;
+      overflow-y: auto;
+      padding-bottom: 80px;
+    }
+
+    .view-screen {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+      padding: 16px;
+    }
+
+    .view-screen.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      width: 100%;
+      height: 140px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+      background: linear-gradient(135deg, var(--bg-light), #fff);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Category Nav Pills */
+    .cat-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      scrollbar-width: none;
+    }
+    .cat-nav::-webkit-scrollbar { display: none; }
+
+    .cat-pill {
+      white-space: nowrap;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: #F3F4F6;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cat-pill.active {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 20px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Product Cards */
+    .product-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      padding: 14px;
+      display: flex;
+      gap: 14px;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-card.unavailable {
+      opacity: 0.6;
+      filter: grayscale(0.6);
+    }
+
+    .prod-icon-box {
+      width: 76px;
+      height: 76px;
+      min-width: 76px;
+      border-radius: var(--radius-md);
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      position: relative;
+    }
+
+    .prod-icon-box .material-symbols-outlined {
+      font-size: 38px;
+    }
+
+    .prod-badge {
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      background: var(--accent-yellow);
+      color: #1f2937;
+      font-family: var(--font-title);
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .prod-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .prod-name {
+      font-family: var(--font-title);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+      margin-bottom: 3px;
+    }
+
+    .prod-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .prod-pricing-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .price-group {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .price-current {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price-old {
+      font-size: 0.78rem;
+      color: #9CA3AF;
+      text-decoration: line-through;
+    }
+
+    .btn-add {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-full);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(183, 0, 119, 0.25);
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .btn-add:active {
+      transform: scale(0.9);
+      background-color: var(--primary-hover);
+    }
+
+    .btn-disabled {
+      background: #E5E7EB;
+      color: #9CA3AF;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Screen Title Bar (Common in sub-screens) */
+    .screen-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-icon-back {
+      background: transparent;
+      border: none;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .btn-icon-back:hover {
+      background: var(--bg-light);
+    }
+
+    .screen-header-title {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Carrinho Screen */
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: #FAFAFA;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-family: var(--font-title);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .cart-item-price {
+      font-size: 0.84rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .cart-counter {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+    }
+
+    .cart-counter button {
+      background: transparent;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .cart-counter span {
+      font-weight: 700;
+      font-size: 0.9rem;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .order-summary-box {
+      background: var(--bg-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 24px;
+      border: 1px dashed var(--primary);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .summary-row.total {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      border-top: 1px solid rgba(183, 0, 119, 0.2);
+      padding-top: 10px;
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    /* Botão Principal Padrão */
+    .btn-primary {
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 15px;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(183, 0, 119, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
+      background-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      width: 100%;
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:active {
+      background: var(--bg-light);
+    }
+
+    /* Estado Carrinho Vazio */
+    .empty-state {
+      text-align: center;
+      padding: 48px 20px;
+    }
+
+    .empty-state .material-symbols-outlined {
+      font-size: 64px;
+      color: var(--border-color);
+      margin-bottom: 12px;
+    }
+
+    .empty-state h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .empty-state p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Formulários e Inputs */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .input-field:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(183, 0, 119, 0.1);
+    }
+
+    .input-field.error {
+      border-color: #EF4444;
+    }
+
+    .error-msg {
+      font-size: 0.75rem;
+      color: #EF4444;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .geo-btn {
+      background: var(--accent-green);
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .geo-btn:active {
+      transform: scale(0.98);
+      background: #B9F5CD;
+    }
+
+    /* PIN Code Input */
+    .pin-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .pin-box {
+      width: 52px;
+      height: 56px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: var(--font-title);
+      font-weight: 800;
+      border: 2px solid #E5E7EB;
+      border-radius: var(--radius-md);
+      background: #F9FAFB;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .pin-box:focus {
+      border-color: var(--primary);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(183, 0, 119, 0.1);
+    }
+
+    /* Gateway Simulado */
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .payment-option-card {
+      border: 1.5px solid #E5E7EB;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .payment-option-card.selected {
+      border-color: var(--primary);
+      background: var(--bg-light);
+    }
+
+    .pay-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .pay-text-wrap h4 {
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .pay-text-wrap p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Modal / Overlay de Processamento */
+    .status-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.96);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .status-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--bg-light);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      color: #065F46;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      animation: popSuccess 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes popSuccess {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    /* Bottom Bar Flutuante de Ver Carrinho */
+    .floating-bar {
+      position: sticky;
+      bottom: 16px;
+      margin: 0 16px -60px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 12px 18px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(183, 0, 119, 0.4);
+      cursor: pointer;
+      z-index: 40;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .floating-bar:active {
+      transform: scale(0.97);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 85px;
+      left: 50%;
+      transform: translateX(-50%) translateY(50px);
+      background: #1F2937;
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 200;
+      white-space: nowrap;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app-container">
+    <!-- Top Header -->
+    <header>
+      <div class="brand-wrap" onclick="App.navigateTo('menu')">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3CRTBehYndzs3y1Jaop3my1fYEEaaZKxXea9IZO8UxpxnVn6QIkjGHUyQqFuB9s_8xXlplHYf7gUdUaPJYDtsqIKaG8O7tk5EcZR3q6KBBRssbCucJwhurkfGhROldE9xgoyySRfGnHSuhL3tREocsvTLHhpZxUkiqnkwG6_w9HYbe6stBPvh8W9_SuYCV15PeUAv6phuYNK0nyQ_e3qZFKKAUJ5WsnmuxQTHUYUKhkqhVW1PwYYlOpikeYRjSraReQ" alt="Milk Pink" class="brand-logo-img">
+        <div>
+          <div class="brand-title">Milk Pink</div>
+          <div class="brand-subtitle">Cardápio Digital</div>
+        </div>
+      </div>
+      <button class="cart-btn" onclick="App.navigateTo('cart')" aria-label="Abrir Carrinho">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+      </button>
+    </header>
+
+    <main>
+      <!-- TELA 1: CARDÁPIO (MENU) -->
+      <section id="screen-menu" class="view-screen active">
+        <div class="hero-banner">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuARSzSUfJ3pdTzHVB_7Ha7XrvBIDf4lSpeutAoXywy3qPz96VoVJunj6qxB3LUkr6WUUAr3Fx3XFxP0EhsA5JLhnvyhPgBfsxmBmRBkDF3JtQSAQVBaN51suHko-HW4OmdNKnLChPduNKGyw2-3i9dtt2f9CAUNz58D9Oq4NZ8uppPt071akxF3NrzojalXpo8FeFeNT5Gv1uLoV9dUwO2P44DhFMzSZGTslarynHz5VSzK-n71wrzFqTS1F-BlJjvU0Q" alt="Cardápio Milk Pink">
+        </div>
+
+        <!-- Categorias Pill Nav -->
+        <div class="cat-nav" id="category-pills">
+          <!-- Dinâmico via JS -->
+        </div>
+
+        <!-- Lista de Produtos por Categoria -->
+        <div id="catalog-container">
+          <!-- Carregando dados... -->
+          <div style="text-align: center; padding: 40px 0; color: var(--text-muted);">
+            <div class="spinner" style="margin: 0 auto 16px;"></div>
+            <p>Carregando delícias do cardápio...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TELA 2: CARRINHO -->
+      <section id="screen-cart" class="view-screen">
+        <div class="screen-header">
+          <button class="btn-icon-back" onclick="App.navigateTo('menu')">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </button>
+          <h2 class="screen-header-title">Seu Carrinho</h2>
+        </div>
+
+        <div id="cart-content">
+          <!-- Itens dinâmicos ou estado vazio -->
+        </div>
+      </section>
+
+      <!-- TELA 3: CHECKOUT - CADASTRO -->
+      <section id="screen-checkout" class="view-screen">
+        <div class="screen-header">
+          <button class="btn-icon-back" onclick="App.navigateTo('cart')">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </button>
+          <h2 class="screen-header-title">Dados para Entrega</h2>
+        </div>
+
+        <form id="checkout-form" onsubmit="App.handleCheckoutSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="user-name">Nome Completo *</label>
+            <input type="text" id="user-name" class="input-field" placeholder="Ex: Ana Maria Silva" required>
+            <div class="error-msg" id="err-name">Informe seu nome completo</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-phone">WhatsApp / Celular *</label>
+            <input type="tel" id="user-phone" class="input-field" placeholder="(11) 99999-9999" maxlength="15" required>
+            <div class="error-msg" id="err-phone">Informe um número de WhatsApp válido</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-email">E-mail *</label>
+            <input type="email" id="user-email" class="input-field" placeholder="seuemail@exemplo.com" required>
+            <div class="error-msg" id="err-email">Informe um e-mail válido</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-address">Endereço de Entrega *</label>
+            <button type="button" class="geo-btn" onclick="App.requestGeolocation()">
+              <span class="material-symbols-outlined" style="font-size: 18px;">my_location</span>
+              Usar minha localização atual (Opcional)
+            </button>
+            <input type="text" id="user-address" class="input-field" placeholder="Rua, número, complemento e bairro" required>
+            <div class="error-msg" id="err-address">Informe o endereço completo de entrega</div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top: 24px;">
+            Continuar para Revisão
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- TELA 4: CONFIRMAÇÃO DO PEDIDO (REVISÃO + PIN) -->
+      <section id="screen-pin" class="view-screen">
+        <div class="screen-header">
+          <button class="btn-icon-back" onclick="App.navigateTo('checkout')">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </button>
+          <h2 class="screen-header-title">Revisão & PIN</h2>
+        </div>
+
+        <div class="order-summary-box">
+          <h4 style="font-family: var(--font-title); font-size: 0.95rem; margin-bottom: 8px; color: var(--primary);">Resumo do Pedido</h4>
+          <div id="pin-summary-items"></div>
+          <div class="summary-row total" style="margin-top: 8px;">
+            <span>Total a Pagar</span>
+            <span id="pin-summary-total">R$ 0,00</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin: 20px 0 10px;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--primary); margin-bottom: 4px;">
+            <span class="material-symbols-outlined">verified_user</span>
+            <h3 style="font-family: var(--font-title); font-size: 1rem; font-weight: 700;">Defina seu PIN de 4 dígitos</h3>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Esta etapa é apenas para você conscientizar e confirmar seu pedido com tranquilidade.</p>
+        </div>
+
+        <div class="pin-container">
+          <input type="password" maxlength="1" class="pin-box" inputmode="numeric" id="pin-1" oninput="App.onPinInput(1, this)">
+          <input type="password" maxlength="1" class="pin-box" inputmode="numeric" id="pin-2" oninput="App.onPinInput(2, this)">
+          <input type="password" maxlength="1" class="pin-box" inputmode="numeric" id="pin-3" oninput="App.onPinInput(3, this)">
+          <input type="password" maxlength="1" class="pin-box" inputmode="numeric" id="pin-4" oninput="App.onPinInput(4, this)">
+        </div>
+
+        <button type="button" class="btn-primary" onclick="App.submitPinAndProceed()">
+          Confirmar Pedido & Ir ao Pagamento
+          <span class="material-symbols-outlined">lock_open</span>
+        </button>
+      </section>
+
+      <!-- TELA 5: GATEWAY SIMULADO -->
+      <section id="screen-payment" class="view-screen">
+        <div class="screen-header">
+          <button class="btn-icon-back" onclick="App.navigateTo('pin')">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </button>
+          <h2 class="screen-header-title">Forma de Pagamento</h2>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+          Escolha como deseja pagar ao receber ou retirar seu milkshake:
+        </p>
+
+        <div class="payment-options">
+          <div class="payment-option-card selected" onclick="App.selectPayment('PIX', this)">
+            <div class="pay-icon-wrap">
+              <span class="material-symbols-outlined">qr_code_2</span>
+            </div>
+            <div class="pay-text-wrap">
+              <h4>PIX</h4>
+              <p>Chave rápida no momento da entrega</p>
+            </div>
+          </div>
+
+          <div class="payment-option-card" onclick="App.selectPayment('Cartão de Débito / Crédito', this)">
+            <div class="pay-icon-wrap">
+              <span class="material-symbols-outlined">credit_card</span>
+            </div>
+            <div class="pay-text-wrap">
+              <h4>Cartão (Débito/Crédito)</h4>
+              <p>Maquininha com entregador</p>
+            </div>
+          </div>
+
+          <div class="payment-option-card" onclick="App.selectPayment('Dinheiro', this)">
+            <div class="pay-icon-wrap">
+              <span class="material-symbols-outlined">payments</span>
+            </div>
+            <div class="pay-text-wrap">
+              <h4>Dinheiro</h4>
+              <p>Pagamento em espécie</p>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" onclick="App.processPaymentSimulation()">
+          Simular Pagamento & Finalizar
+          <span class="material-symbols-outlined">check_circle</span>
+        </button>
+      </section>
+
+      <!-- TELA 6: CONFIRMAÇÃO FINAL COM WHATSAPP -->
+      <section id="screen-confirmation" class="view-screen">
+        <div style="text-align: center; padding: 24px 10px 10px;">
+          <div class="success-icon-wrap" style="margin: 0 auto 16px;">
+            <span class="material-symbols-outlined" style="font-size: 40px;">check</span>
+          </div>
+          <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-main); margin-bottom: 6px;">Pedido Gerado com Sucesso!</h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+            Agora basta enviar seu pedido para nossa equipe no WhatsApp para iniciarmos o preparo.
+          </p>
+
+          <div style="background: var(--bg-light); border: 1.5px dashed var(--primary); border-radius: var(--radius-md); padding: 14px; margin-bottom: 24px;">
+            <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Número do Pedido</div>
+            <div id="final-order-id" style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 800; color: var(--primary);">#MS-00000000</div>
+          </div>
+
+          <a id="whatsapp-order-link" href="#" target="_blank" class="btn-primary" style="background: #25D366; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); margin-bottom: 14px;">
+            <span class="material-symbols-outlined">chat</span>
+            Enviar Pedido pelo WhatsApp
+          </a>
+
+          <button type="button" class="btn-secondary" onclick="App.resetOrderAndGoHome()">
+            <span class="material-symbols-outlined">storefront</span>
+            Voltar ao Cardápio
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Barra Flutuante de Atalho ao Carrinho (quando na tela de menu) -->
+    <div id="floating-cart-bar" class="floating-bar" style="display: none;" onclick="App.navigateTo('cart')">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span id="floating-cart-count" style="font-weight: 700; font-size: 0.95rem;">0 itens</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span id="floating-cart-total" style="font-weight: 800; font-size: 1rem;">R$ 0,00</span>
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </div>
+    </div>
+
+    <!-- Overlay de Processamento do Gateway -->
+    <div id="payment-overlay" class="status-overlay">
+      <div id="overlay-processing">
+        <div class="spinner"></div>
+        <h3 style="font-family: var(--font-title); font-size: 1.15rem; color: var(--text-main); margin-bottom: 6px;">Processando Pagamento...</h3>
+        <p style="font-size: 0.84rem; color: var(--text-muted);">Validando com a operadora do gateway</p>
+      </div>
+      <div id="overlay-approved" style="display: none;">
+        <div class="success-icon-wrap" style="margin: 0 auto 16px;">
+          <span class="material-symbols-outlined" style="font-size: 40px;">done_all</span>
+        </div>
+        <h3 style="font-family: var(--font-title); font-size: 1.25rem; color: #065F46; margin-bottom: 6px;">Pagamento Aprovado!</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Redirecionando para envio do pedido...</p>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="app-toast" class="toast">
+      <span class="material-symbols-outlined" style="font-size: 18px; color: var(--accent-yellow);">check_circle</span>
+      <span id="toast-text">Item adicionado ao carrinho!</span>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // CONFIGURAÇÃO E DADOS GLOBAIS
+    // ==========================================
+    const CONFIG = {
+      WHATSAPP_NUMBER: "5511998838154",
+      DEFAULT_MSG_PREFIX: "Olá! Vim pelo cardápio online. "
+    };
+
+    // Dados fixos do cardápio (conforme especificação)
+    const DADOS_JSON = {
+      "loja": {
+        "nome": "MilkShake House",
+        "whatsapp": CONFIG.WHATSAPP_NUMBER,
+        "mensagemPadrao": CONFIG.DEFAULT_MSG_PREFIX
+      },
+      "categorias": [
+        {
+          "id": "classicos",
+          "nome": "Clássicos",
+          "produtos": [
+            {
+              "id": "ms-001",
+              "nome": "Chocolate Belga",
+              "descricao": "Chocolate belga, sorvete de creme e chantilly",
+              "preco": 18.90,
+              "icon": "cookie",
+              "disponivel": true,
+              "promocao": {
+                "precoPromocional": 15.90,
+                "motivo": "Semana do Chocolate"
+              }
+            },
+            {
+              "id": "ms-002",
+              "nome": "Morango Silvestre",
+              "descricao": "Morango, sorvete de morango e calda artesanal",
+              "preco": 17.90,
+              "icon": "nutrition",
+              "disponivel": true
+            },
+            {
+              "id": "ms-003",
+              "nome": "Baunilha Premium",
+              "descricao": "Fava de baunilha, leite fresco e crocante de amendoim",
+              "preco": 16.90,
+              "icon": "icecream",
+              "disponivel": true
+            }
+          ]
+        },
+        {
+          "id": "especiais",
+          "nome": "Especiais da Casa",
+          "produtos": [
+            {
+              "id": "ms-004",
+              "nome": "Oreo Trufado",
+              "descricao": "Biscoito Oreo, ganache de chocolate e chantilly",
+              "preco": 22.90,
+              "icon": "bakery_dining",
+              "disponivel": true
+            },
+            {
+              "id": "ms-005",
+              "nome": "Pistache com Nutella",
+              "descricao": "Creme de pistache, Nutella e pedaços de brownie",
+              "preco": 26.90,
+              "icon": "local_cafe",
+              "disponivel": true,
+              "promocao": {
+                "precoPromocional": 23.90,
+                "motivo": "Lançamento"
+              }
+            }
+          ]
+        },
+        {
+          "id": "veganos",
+          "nome": "Veganos",
+          "produtos": [
+            {
+              "id": "ms-006",
+              "nome": "Açaí com Granola",
+              "descricao": "Açaí, leite de coco, granola e banana",
+              "preco": 21.90,
+              "icon": "eco",
+              "disponivel": true
+            },
+            {
+              "id": "ms-007",
+              "nome": "Cacau 70%",
+              "descricao": "Chocolate 70%, leite de aveia e pasta de amendoim",
+              "preco": 20.90,
+              "icon": "spa",
+              "disponivel": false
+            }
+          ]
+        }
+      ]
+    };
+
+    // ==========================================
+    // ESTADO DA APLICAÇÃO (SPA)
+    // ==========================================
+    const App = {
+      menuData: null,
+      cart: [],
+      currentScreen: 'menu',
+      checkoutData: {
+        nome: '',
+        whatsapp: '',
+        email: '',
+        endereco: '',
+        pagamento: 'PIX',
+        pin: ''
+      },
+
+      init() {
+        this.loadCart();
+        this.loadMenuData();
+        this.initPhoneMask();
+      },
+
+      // Carregar dados com fallback e tratamento amigável de erro
+      loadMenuData() {
+        try {
+          // Simula carregamento do JSON
+          this.menuData = DADOS_JSON;
+          this.renderCatalog();
+        } catch (err) {
+          const container = document.getElementById('catalog-container');
+          container.innerHTML = `
+            <div class="empty-state">
+              <span class="material-symbols-outlined" style="color: #EF4444;">error</span>
+              <h3>Ops! Não conseguimos carregar o cardápio</h3>
+              <p>Houve uma falha ao ler o cardápio digital. Por favor, tente novamente.</p>
+              <button class="btn-primary" onclick="App.loadMenuData()">Tentar Novamente</button>
+            </div>
+          `;
+        }
+      },
+
+      // Renderizar categorias e lista de produtos
+      renderCatalog() {
+        const pillsContainer = document.getElementById('category-pills');
+        const catalogContainer = document.getElementById('catalog-container');
+
+        if (!this.menuData || !this.menuData.categorias) return;
+
+        let pillsHtml = `<button class="cat-pill active" onclick="App.filterCategory('all', this)">Todos</button>`;
+        let catalogHtml = '';
+
+        this.menuData.categorias.forEach(cat => {
+          pillsHtml += `<button class="cat-pill" onclick="App.filterCategory('${cat.id}', this)">${cat.nome}</button>`;
+
+          catalogHtml += `
+            <div class="category-section" id="cat-group-${cat.id}">
+              <div class="section-title">
+                <span class="material-symbols-outlined" style="font-size: 20px;">local_bar</span>
+                ${cat.nome}
+              </div>
+              <div class="product-grid">
+          `;
+
+          cat.produtos.forEach(p => {
+            const hasPromo = p.promocao && p.promocao.precoPromocional;
+            const finalPrice = hasPromo ? p.promocao.precoPromocional : p.preco;
+            const isAvail = p.disponivel !== false;
+
+            catalogHtml += `
+              <div class="product-card ${!isAvail ? 'unavailable' : ''}">
+                <div class="prod-icon-box">
+                  <span class="material-symbols-outlined">${p.icon || 'local_bar'}</span>
+                  ${hasPromo && isAvail ? `<span class="prod-badge">${p.promocao.motivo || 'Promo'}</span>` : ''}
+                </div>
+                <div class="prod-info">
+                  <div>
+                    <h3 class="prod-name">${p.nome}</h3>
+                    <p class="prod-desc">${p.descricao}</p>
+                  </div>
+                  <div class="prod-pricing-row">
+                    <div class="price-group">
+                      <span class="price-current">R$ ${finalPrice.toFixed(2).replace('.', ',')}</span>
+                      ${hasPromo ? `<span class="price-old">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>` : ''}
+                    </div>
+                    ${isAvail ? `
+                      <button class="btn-add" onclick="App.addToCart('${p.id}')" title="Adicionar ao carrinho">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                      </button>
+                    ` : `
+                      <span style="font-size: 0.72rem; font-weight: 700; color: #9CA3AF; text-transform: uppercase;">Esgotado</span>
+                    `}
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+
+          catalogHtml += `</div></div>`;
+        });
+
+        pillsContainer.innerHTML = pillsHtml;
+        catalogContainer.innerHTML = catalogHtml;
+      },
+
+      filterCategory(catId, btnEl) {
+        document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+
+        const groups = document.querySelectorAll('.category-section');
+        if (catId === 'all') {
+          groups.forEach(g => g.style.display = 'block');
+        } else {
+          groups.forEach(g => {
+            if (g.id === `cat-group-${catId}`) {
+              g.style.display = 'block';
+            } else {
+              g.style.display = 'none';
+            }
+          });
+        }
+      },
+
+      // Gerenciamento de Carrinho com LocalStorage
+      loadCart() {
+        try {
+          const saved = localStorage.getItem('milkpink_cart');
+          this.cart = saved ? JSON.parse(saved) : [];
+        } catch (e) {
+          this.cart = [];
+        }
+        this.updateCartBadges();
+      },
+
+      saveCart() {
+        try {
+          localStorage.setItem('milkpink_cart', JSON.stringify(this.cart));
+        } catch (e) {}
+        this.updateCartBadges();
+      },
+
+      findProductById(id) {
+        if (!this.menuData) return null;
+        for (const cat of this.menuData.categorias) {
+          for (const prod of cat.produtos) {
+            if (prod.id === id) return prod;
+          }
+        }
+        return null;
+      },
+
+      addToCart(productId) {
+        const prod = this.findProductById(productId);
+        if (!prod || prod.disponivel === false) return;
+
+        const effectivePrice = prod.promocao && prod.promocao.precoPromocional ? prod.promocao.precoPromocional : prod.preco;
+
+        const existing = this.cart.find(item => item.id === productId);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          this.cart.push({
+            id: prod.id,
+            nome: prod.nome,
+            preco: effectivePrice,
+            qty: 1
+          });
+        }
+
+        this.saveCart();
+        this.showToast(`"${prod.nome}" adicionado!`);
+      },
+
+      updateCartItemQty(productId, delta) {
+        const itemIndex = this.cart.findIndex(i => i.id === productId);
+        if (itemIndex > -1) {
+          this.cart[itemIndex].qty += delta;
+          if (this.cart[itemIndex].qty <= 0) {
+            this.cart.splice(itemIndex, 1);
+          }
+          this.saveCart();
+          this.renderCart();
+        }
+      },
+
+      updateCartBadges() {
+        const totalItems = this.cart.reduce((sum, item) => sum + item.qty, 0);
+        const totalPrice = this.cart.reduce((sum, item) => sum + (item.qty * item.preco), 0);
+
+        const badge = document.getElementById('cart-badge');
+        const floatBar = document.getElementById('floating-cart-bar');
+        const floatCount = document.getElementById('floating-cart-count');
+        const floatTotal = document.getElementById('floating-cart-total');
+
+        if (totalItems > 0) {
+          badge.style.display = 'block';
+          badge.textContent = totalItems;
+
+          if (this.currentScreen === 'menu') {
+            floatBar.style.display = 'flex';
+            floatCount.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'itens'}`;
+            floatTotal.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+          } else {
+            floatBar.style.display = 'none';
+          }
+        } else {
+          badge.style.display = 'none';
+          floatBar.style.display = 'none';
+        }
+      },
+
+      // Render Carrinho
+      renderCart() {
+        const container = document.getElementById('cart-content');
+        if (this.cart.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <span class="material-symbols-outlined">shopping_basket</span>
+              <h3>Seu carrinho está vazio</h3>
+              <p>Escolha um delicioso milkshake no cardápio para começar!</p>
+              <button class="btn-primary" onclick="App.navigateTo('menu')">
+                <span class="material-symbols-outlined">restaurant_menu</span>
+                Ver Cardápio
+              </button>
+            </div>
+          `;
+          return;
+        }
+
+        let itemsHtml = '<div class="cart-items-list">';
+        let total = 0;
+
+        this.cart.forEach(item => {
+          const itemTotal = item.qty * item.preco;
+          total += itemTotal;
+          itemsHtml += `
+            <div class="cart-item">
+              <div class="cart-item-details">
+                <div class="cart-item-name">${item.nome}</div>
+                <div class="cart-item-price">R$ ${item.preco.toFixed(2).replace('.', ',')}</div>
+              </div>
+              <div class="cart-counter">
+                <button onclick="App.updateCartItemQty('${item.id}', -1)" aria-label="Diminuir quantidade">
+                  <span class="material-symbols-outlined">remove</span>
+                </button>
+                <span>${item.qty}</span>
+                <button onclick="App.updateCartItemQty('${item.id}', 1)" aria-label="Aumentar quantidade">
+                  <span class="material-symbols-outlined">add</span>
+                </button>
+              </div>
+            </div>
+          `;
+        });
+        itemsHtml += '</div>';
+
+        const summaryHtml = `
+          <div class="order-summary-box">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span>R$ ${total.toFixed(2).replace('.', ',')}</span>
+            </div>
+            <div class="summary-row">
+              <span>Taxa de Entrega</span>
+              <span style="color: #059669; font-weight: 700;">Grátis</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span>R$ ${total.toFixed(2).replace('.', ',')}</span>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="App.navigateTo('checkout')">
+            Finalizar Compra
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        `;
+
+        container.innerHTML = itemsHtml + summaryHtml;
+      },
+
+      // Navegação entre telas (SPA)
+      navigateTo(screenId) {
+        this.currentScreen = screenId;
+        document.querySelectorAll('.view-screen').forEach(scr => {
+          scr.classList.remove('active');
+        });
+
+        const target = document.getElementById(`screen-${screenId}`);
+        if (target) {
+          target.classList.add('active');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        if (screenId === 'cart') {
+          this.renderCart();
+        } else if (screenId === 'pin') {
+          this.renderPinSummary();
+        }
+
+        this.updateCartBadges();
+      },
+
+      // Máscara no telefone de WhatsApp
+      initPhoneMask() {
+        const phoneInput = document.getElementById('user-phone');
+        phoneInput.addEventListener('input', (e) => {
+          let value = e.target.value.replace(/\D/g, '');
+          if (value.length > 11) value = value.slice(0, 11);
+
+          if (value.length > 10) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+          } else if (value.length > 6) {
+            value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+          } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+          }
+          e.target.value = value;
+        });
+      },
+
+      // Geolocalização OPCIONAL
+      requestGeolocation() {
+        if (!navigator.geolocation) {
+          this.showToast("Geolocalização não suportada no seu navegador.");
+          return;
+        }
+
+        this.showToast("Buscando localização aproximada...");
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const lat = pos.coords.latitude.toFixed(4);
+            const lng = pos.coords.longitude.toFixed(4);
+            const addressInput = document.getElementById('user-address');
+            addressInput.value = `Localização detectada (Lat: ${lat}, Lng: ${lng}) - Complemente com Rua/Número`;
+            this.showToast("Localização obtida com sucesso!");
+          },
+          (err) => {
+            this.showToast("Não foi possível obter a localização. Preencha manualmente.");
+          },
+          { timeout: 8000 }
+        );
+      },
+
+      // Validação do cadastro
+      handleCheckoutSubmit(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('user-name').value.trim();
+        const phone = document.getElementById('user-phone').value.trim();
+        const email = document.getElementById('user-email').value.trim();
+        const address = document.getElementById('user-address').value.trim();
+
+        let valid = true;
+
+        if (name.length < 3) {
+          document.getElementById('err-name').style.display = 'block';
+          valid = false;
+        } else {
+          document.getElementById('err-name').style.display = 'none';
+        }
+
+        const phoneDigits = phone.replace(/\D/g, '');
+        if (phoneDigits.length < 10) {
+          document.getElementById('err-phone').style.display = 'block';
+          valid = false;
+        } else {
+          document.getElementById('err-phone').style.display = 'none';
+        }
+
+        if (!email.includes('@') || !email.includes('.')) {
+          document.getElementById('err-email').style.display = 'block';
+          valid = false;
+        } else {
+          document.getElementById('err-email').style.display = 'none';
+        }
+
+        if (address.length < 5) {
+          document.getElementById('err-address').style.display = 'block';
+          valid = false;
+        } else {
+          document.getElementById('err-address').style.display = 'none';
+        }
+
+        if (!valid) return;
+
+        // Armazenamento em memória (SEM PERSISTÊNCIA)
+        this.checkoutData.nome = name;
+        this.checkoutData.whatsapp = phone;
+        this.checkoutData.email = email;
+        this.checkoutData.endereco = address;
+
+        this.navigateTo('pin');
+      },
+
+      // Renderizar resumo na etapa de PIN
+      renderPinSummary() {
+        const summaryContainer = document.getElementById('pin-summary-items');
+        const totalContainer = document.getElementById('pin-summary-total');
+
+        let html = '';
+        let total = 0;
+
+        this.cart.forEach(item => {
+          const itemTotal = item.qty * item.preco;
+          total += itemTotal;
+          html += `
+            <div class="summary-row">
+              <span>${item.qty}x ${item.nome}</span>
+              <span>R$ ${itemTotal.toFixed(2).replace('.', ',')}</span>
+            </div>
+          `;
+        });
+
+        summaryContainer.innerHTML = html;
+        totalContainer.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+      },
+
+      // Controle de PIN de 4 dígitos
+      onPinInput(index, el) {
+        if (el.value.length === 1 && index < 4) {
+          document.getElementById(`pin-${index + 1}`).focus();
+        }
+      },
+
+      submitPinAndProceed() {
+        const p1 = document.getElementById('pin-1').value;
+        const p2 = document.getElementById('pin-2').value;
+        const p3 = document.getElementById('pin-3').value;
+        const p4 = document.getElementById('pin-4').value;
+
+        const fullPin = `${p1}${p2}${p3}${p4}`;
+        // Não bloqueia por falha conforme regra 5 ("Nunca bloqueia o pedido por falha no PIN")
+        this.checkoutData.pin = fullPin || '1234';
+
+        this.navigateTo('payment');
+      },
+
+      // Seleção de Pagamento
+      selectPayment(method, element) {
+        this.checkoutData.pagamento = method;
+        document.querySelectorAll('.payment-option-card').forEach(c => c.classList.remove('selected'));
+        element.classList.add('selected');
+      },
+
+      // Gateway Simulado
+      processPaymentSimulation() {
+        const overlay = document.getElementById('payment-overlay');
+        const processing = document.getElementById('overlay-processing');
+        const approved = document.getElementById('overlay-approved');
+
+        overlay.classList.add('show');
+        processing.style.display = 'block';
+        approved.style.display = 'none';
+
+        // Simulação ~2 segundos
+        setTimeout(() => {
+          processing.style.display = 'none';
+          approved.style.display = 'block';
+
+          setTimeout(() => {
+            overlay.classList.remove('show');
+            this.finalizeOrder();
+          }, 1200);
+        }, 2000);
+      },
+
+      // Finalização do Pedido e Link do WhatsApp
+      finalizeOrder() {
+        const timestamp = Date.now().toString().slice(-6);
+        const orderNumber = `#MS-${timestamp}`;
+
+        document.getElementById('final-order-id').textContent = orderNumber;
+
+        // Montagem do texto do WhatsApp
+        let itemsText = '';
+        let total = 0;
+        this.cart.forEach(item => {
+          const itemTotal = item.qty * item.preco;
+          total += itemTotal;
+          itemsText += `• ${item.qty}x ${item.nome} - R$ ${itemTotal.toFixed(2).replace('.', ',')}\n`;
+        });
+
+        const totalFormatted = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+        const message = 
+`${CONFIG.DEFAULT_MSG_PREFIX}
+━━━━━━━━━━━━━━━━━━
+🛍️ *PEDIDO: ${orderNumber}*
+━━━━━━━━━━━━━━━━━━
+*Itens:*
+${itemsText}
+💰 *Total:* ${totalFormatted}
+💳 *Forma de Pagamento:* ${this.checkoutData.pagamento}
+
+📍 *Dados de Entrega:*
+*Cliente:* ${this.checkoutData.nome}
+*WhatsApp:* ${this.checkoutData.whatsapp}
+*Endereço:* ${this.checkoutData.endereco}
+━━━━━━━━━━━━━━━━━━
+Aguardando confirmação de preparo!`;
+
+        const waUrl = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        document.getElementById('whatsapp-order-link').href = waUrl;
+
+        // Regra: limpar o carrinho do localStorage após gerar o pedido
+        this.cart = [];
+        localStorage.removeItem('milkpink_cart');
+        this.updateCartBadges();
+
+        this.navigateTo('confirmation');
+      },
+
+      resetOrderAndGoHome() {
+        // Limpar inputs
+        document.getElementById('checkout-form').reset();
+        for (let i = 1; i <= 4; i++) {
+          document.getElementById(`pin-${i}`).value = '';
+        }
+        this.navigateTo('menu');
+      },
+
+      showToast(text) {
+        const toast = document.getElementById('app-toast');
+        document.getElementById('toast-text').textContent = text;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2600);
+      }
+    };
+
+    // Inicializar quando o DOM estiver pronto
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Milk Pink - Cardápio Digital</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#484a00",
+            "surface-container-high": "#efe6e8",
+            "error": "#ba1a1a",
+            "primary": "#8c005a",
+            "inverse-primary": "#ffafd1",
+            "surface-container-highest": "#e9e0e3",
+            "primary-fixed": "#ffd8e6",
+            "surface-container": "#f5ebee",
+            "secondary-container": "#f2dedb",
+            "surface-container-low": "#fbf1f4",
+            "inverse-on-surface": "#f8eef1",
+            "on-primary-fixed-variant": "#8b0059",
+            "outline": "#8b707a",
+            "on-secondary-container": "#6f615f",
+            "on-primary-fixed": "#3d0025",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fff8f9",
+            "on-error": "#ffffff",
+            "surface-variant": "#e9e0e3",
+            "background": "#fff8f9",
+            "on-primary-container": "#ffccdf",
+            "secondary-fixed-dim": "#d5c2c0",
+            "surface-dim": "#e1d8da",
+            "outline-variant": "#debec9",
+            "surface": "#fff8f9",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#e7eb0f",
+            "on-tertiary-fixed": "#1c1d00",
+            "on-secondary-fixed-variant": "#514442",
+            "on-background": "#1f1a1c",
+            "on-secondary-fixed": "#231918",
+            "surface-tint": "#b60076",
+            "secondary": "#695b59",
+            "tertiary-fixed-dim": "#cace00",
+            "primary-container": "#b70077",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#dee200",
+            "on-surface-variant": "#57404a",
+            "primary-fixed-dim": "#ffafd1",
+            "secondary-fixed": "#f2dedb",
+            "on-primary": "#ffffff",
+            "tertiary": "#494a00",
+            "inverse-surface": "#342f31",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1f1a1c",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#616300"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-2xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-xs": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.75rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-2xl": "3rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Open Sans"],
+            "headline-md": ["Poppins"],
+            "label-sm": ["Poppins"],
+            "body-md": ["Open Sans"],
+            "label-md": ["Poppins"],
+            "body-sm": ["Open Sans"],
+            "headline-lg": ["Poppins"],
+            "display-lg-mobile": ["Poppins"],
+            "display-lg": ["Poppins"],
+            "headline-sm": ["Poppins"],
+            "title-md": ["Poppins"],
+            "label-lg": ["Poppins"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .card-shadow {
+      box-shadow: 0 4px 16px -2px rgba(183, 0, 119, 0.05), 0 2px 6px -1px rgba(26, 22, 24, 0.04);
+    }
+    .card-shadow:hover {
+      box-shadow: 0 8px 24px -4px rgba(183, 0, 119, 0.12), 0 4px 10px -2px rgba(26, 22, 24, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-fixed selection:text-primary min-h-screen pb-36">
+<!-- Shared TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter-mobile h-16 max-w-7xl mx-auto bg-surface shadow-sm">
+<div class="flex items-center gap-2">
+<div class="h-10 w-28 flex items-center justify-start overflow-hidden">
+<img alt="Milk Pink Logo" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQsACw6cec-mISXoTCjK8s2YiTylZEFgdJ6IhTIayZpI1CGP9936Ymir8tIztjEtscLn56y7ciIuilC7qv0yc0uSkk1cQ0j31gYwzCj3WM_oWDqzqVlVJL27tO2XpvItduYDgat2cFjvq5PKnyK9zHAHq55zpfFG3UzqY9zpA9o8IsdQAnDoSO6LPcpNHnN1DuSJidcBkLcWxOjjNyeJlp6PFQbHYuQBp1CUmge6eGepPi51wrIqo64kvY7Ungxjvolg"/>
+</div>
+</div>
+<!-- Right Action: Cart Indicator -->
+<div class="flex items-center gap-1">
+<button class="relative p-2 rounded-full hover:bg-surface-container transition-colors duration-150 active:scale-95 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-1 right-1 bg-primary-container text-on-primary text-label-sm font-label-sm rounded-full w-5 h-5 flex items-center justify-center border-2 border-surface">2</span>
+</button>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="pt-20 px-gutter-mobile max-w-md mx-auto flex flex-col gap-5">
+<!-- Promo Banner (Semana Mais Doce) -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary-fixed to-secondary-fixed p-4 shadow-sm border border-outline-variant">
+<div class="relative z-10 max-w-[65%]">
+<span class="inline-block bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2.5 py-0.5 rounded-full mb-1.5 shadow-sm">
+          Promoção do Dia
+        </span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight mb-1">
+          Double Shake Day!
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2.5">
+          Peça 1 Milk Pink Especial e o segundo sai com 50% OFF.
+        </p>
+<button class="bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md px-3.5 py-1.5 rounded-full active:scale-95 transition-all shadow-sm flex items-center gap-1">
+<span>Aproveitar</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Milkshake Illustration decoration -->
+<div class="absolute -right-3 -bottom-2 w-32 h-36 pointer-events-none opacity-95">
+<img class="w-full h-full object-contain transform rotate-6" data-alt="Vibrant studio photograph of an artisanal pink strawberry milkshake overflowing with whipped cream, sprinkles, and a glossy red cherry on top, framed against a pastel studio background matching Milk Pink branding colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJYe3E2yb0FTgmigEVjZx2fdwqlx5abuLA8E4ziuIuzbu_tWjCDbIVSz7MadTi527yk3ToMWXz3mxbcbBASBQ16tJM2uGrVqB69xQovu8MuxmuK6JTOceJWpsVMbGzW1809IiVAS-XFGsYah44jw_uyC8rY--xoOdyqxw3LTz9pA2Luhj8fQUk72JwxSoxJ3XSv1K_LWzIfS9UsQ98idZv2sN9D2Ko91BIs3jFISO96vVLuhw6Kt-N"/>
+</div>
+</div>
+<!-- Search Input -->
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</span>
+<input class="w-full pl-11 pr-4 py-3 bg-secondary-container/60 border border-transparent focus:border-primary-container focus:bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/70 rounded-full font-body-md text-body-md transition-all outline-none shadow-sm" placeholder="Buscar sabores, caldas e especiais..." type="text"/>
+</div>
+<!-- Horizontal Category Filter Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full font-label-md text-label-md bg-primary-container text-on-primary shadow-sm shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="storefront">storefront</span>
+<span>Todos</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary shrink-0 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="local_drink">local_drink</span>
+<span>Clássicos</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary shrink-0 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span>Especiais da Casa</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary shrink-0 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="spa">spa</span>
+<span>Veganos</span>
+</button>
+</div>
+<!-- Section Title -->
+<div class="flex justify-between items-end pt-1">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Menu de Shakes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Feitos com sorvete artesanal batido na hora</p>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-2 py-0.5 rounded-full">7 opções</span>
+</div>
+<!-- Product Cards Grid / List -->
+<div class="flex flex-col gap-3.5">
+<!-- Item 1: Chocolate Belga (Semana do Chocolate) -->
+<div class="card-shadow bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/60 flex items-center justify-between gap-3 relative transition-all">
+<div class="relative w-24 h-24 rounded-xl bg-surface-container overflow-hidden shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Artisanal Belgian chocolate milkshake topped with dark chocolate curls and whipped cream in a transparent glass cup, high key lighting, crisp product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIXGRwFwJFBrsH5Fkp0kIIavtVoXy6wqGQ-6VfL-DJOrfoogEWrdD4ky2Q4VPa9sfRlH0B_6zKJWdzTtmdz-88oqNw23F1om4mBit1Y1CVRLptfjW2lgRYcETTgw__1BZFW7Kn5dEo79gImH9K3WRgOXS2grhl1PutO9kpuf46tXzpMPmvzvBxuumFwQROYg54FwVA5SwDFYPjTca-NHDS2SD_EVBNL5zMjt39tkP0Z2kS8UVHYz6r"/>
+<span class="absolute top-1 left-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-sm leading-none">
+            Semana do Chocolate
+          </span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Chocolate Belga</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-1.5">Puro chocolate belga cremoso e raspas trufadas.</p>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 15,90</span>
+<span class="font-body-sm text-body-sm text-outline line-through">R$ 18,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Chocolate Belga" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-md hover:bg-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Item 2: Morango Silvestre -->
+<div class="card-shadow bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/60 flex items-center justify-between gap-3 relative transition-all">
+<div class="w-24 h-24 rounded-xl bg-surface-container overflow-hidden shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Classic wild strawberry milkshake with fresh berry puree swirl, rich whipped cream and whole strawberry topping, bright pink aesthetic matching Milk Pink brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuAbPPqFiJJ--L-8PgACmy3aEtKW2YOOnJg6u_eV32IKUuR-AjQKuvOE7SSqZbv3BRjAGbKtjuP4lzwiVzF0i37I8tcH4WVxf2lsXmqyGBDeCbwc7PuB_C6HkIVaTlaq3jDgkUt1b0gTVrissHzU1-N7GAgd8JVqb8uRwcBvASY7vaS8Fis1cfiwgkeQW7ffdIMEo90c7eRWXrnMqSPicGO2vEsMS7xAr2a7Z46rmPkUjyGeAR_QCF"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Morango Silvestre</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-1.5">Morango, sorvete de morango e calda artesanal.</p>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 17,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Morango Silvestre" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-md hover:bg-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Item 3: Pistache com Nutella (Lançamento) -->
+<div class="card-shadow bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/60 flex items-center justify-between gap-3 relative transition-all">
+<div class="relative w-24 h-24 rounded-xl bg-surface-container overflow-hidden shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Gourmet pistachio milkshake with generous Nutella hazelnut drizzle on the cup walls, whipped cream and crushed pistachios on top, luxury dessert photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdO75BIkOJWxAxi9MO9kvMcxUYoxrAU2ditZIC52IZ-P4gwOSlNRkMfOX0rQZWoImy9K_eQGYoel4DkaBuexttGBaGxLw2B8veBtFCapH5qmsUIpT2QQk_asBbWBDoOpzqjyxtG--tkYErylWbRkzmOPrhD_H6ooAiGp4lYVpyS_2Nn10pi-0GvzJKoUARWKCPyhdOqHsQTJDnkrzEjAI5gHt2GnroUqVqRFxAtQ_6UvPF3fT3VPA_"/>
+<span class="absolute top-1 left-1 bg-primary-container text-on-primary font-label-sm text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-sm leading-none">
+            Lançamento
+          </span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Pistache com Nutella</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-1.5">Gelato de pistache italiano e borda farta de Nutella.</p>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 23,90</span>
+<span class="font-body-sm text-body-sm text-outline line-through">R$ 26,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Pistache com Nutella" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-md hover:bg-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Item 4: Baunilha Premium -->
+<div class="card-shadow bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/60 flex items-center justify-between gap-3 relative transition-all">
+<div class="w-24 h-24 rounded-xl bg-surface-container overflow-hidden shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Madagascar vanilla bean milkshake in a tall clear glass with soft velvety texture and whipped cream sprinkle with natural vanilla specks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1U62Nv5TVE59RCN2HdBt3qhhdv_R-FS7CzfumXr5W0L5O6iQKD2B_fbxx_8Ob_dlwYtcHObTg66SI2vVIMuh7R5nSWjbh-Kqojf4ezvSiV0lSyjywSm9grv_1de5AQSvwOe21llVQrMz2juRCuggqNv6VfLOPnufSdTu-aWSbVeFhm1DCw4R4oXepsO0zJBBgpG2zjGgrgrJcCp4vtXvQ6In2kaHijhuMGuQ-SJxZIDgf9NcXV3W-"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Baunilha Premium</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-1.5">Fava de baunilha de Madagascar batida com leite fresco.</p>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 16,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Baunilha Premium" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-md hover:bg-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Item 5: Oreo Trufado -->
+<div class="card-shadow bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/60 flex items-center justify-between gap-3 relative transition-all">
+<div class="w-24 h-24 rounded-xl bg-surface-container overflow-hidden shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Cookies and cream oreo milkshake packed with cookie chunks, rich whipped cream and mini chocolate sandwich cookies on a pastel surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcCNiiMifiB54XVbgDCceh2HbXx0jC8kJtYNtPGhTCD92JvOXwyMkuwUyIzUxqd0uw8zz16LRMFXqfC39aDeUSEUKMgukot8T42BmCrEXsM7m87hrT4wcKl6nGAcWlVIGaJpm1jPz2EOPkLgK4NUgMzc5El3UoAt6Fm-m7GURdukZdpADxy3X6WcIb8FJTr_NFCTKRCXY0O1MZQ0Tt5eHFcaa5H2ULNvQ8nkPFdVJd5MSmVzi2bUtJ"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Oreo Trufado</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-1.5">Pedaços crocantes de biscoito Oreo e trufa de chocolate.</p>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 22,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Oreo Trufado" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-md hover:bg-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Item 6: Açaí com Granola -->
+<div class="card-shadow bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/60 flex items-center justify-between gap-3 relative transition-all">
+<div class="w-24 h-24 rounded-xl bg-surface-container overflow-hidden shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Creamy acai smoothie milkshake in a modern tumbler cup layered with artisanal honey granola and banana slices, crisp and appetizing lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqvATFmq-8L624welrOdYe9ttnkscq-r5tbaj4C6JX17nHFH8ELAtQRakdgZk_l9rjv2jLWMAytT9t_jv8bZsOzJYkKkeViU6sdFvwNFsjUwr7cA14xzlGVD5Y9UR6oLzAYeSDcW-Q4cZSySkWAAOxPBsMGoc3IF65sPJMlpBQK6eZ8nTaPNyza1MEM9H79-yyEk76ivzuiLgwQW08Dldo3Sj-73wymrH4SmCw7W0CVRjswjdsIOoe"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Açaí com Granola</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-1.5">Polpa especial de açaí cremoso com granola crocante.</p>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">R$ 21,90</span>
+</div>
+</div>
+<button aria-label="Adicionar Açaí com Granola" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-md hover:bg-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Item 7: Cacau 70% (Esgotado) -->
+<div class="card-shadow bg-surface-container-low/70 rounded-2xl p-3.5 border border-outline-variant/40 flex items-center justify-between gap-3 relative opacity-70">
+<div class="relative w-24 h-24 rounded-xl bg-surface-container-high overflow-hidden shrink-0 flex items-center justify-center grayscale-[60%]">
+<img class="w-full h-full object-cover" data-alt="Intense dark chocolate milkshake in glass with cocoa powder dusting, minimalist clean presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZruxRCZytaIXPJz8LQ_62eb0j02hTtGRvwbpt2b_5O-Og4am8aPmIIJm9uwGItGZ1-QS3gSOrG4RMhle6is59qkGcMKLTWqGC6TOzOcDkkb2_vsoxSn4xuYFWKPSU2zuove0EsNXMlNrAe6zc6MjmFLDGBBoTFiTPAab5GOGwi3FxJEfq-_HbL8FCD4Np1ixp074rYMWF0Fxg6C6K8-fskyqx64wNIpMJDZKTMmHfyWekBYAz2oy3"/>
+<div class="absolute inset-0 bg-inverse-surface/30 flex items-center justify-center">
+<span class="bg-error text-on-error font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">
+              Esgotado
+            </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Cacau 70%</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-1.5">Chocolate amargo nobre, sem adição de açúcar.</p>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">R$ 20,90</span>
+</div>
+</div>
+<button aria-label="Cacau 70% indisponível" class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant/40 flex items-center justify-center shrink-0 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[20px]" data-icon="block">block</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Floating Cart Bar (Sticky Above Bottom Navigation) -->
+<div class="fixed bottom-16 left-0 w-full z-40 px-gutter-mobile pointer-events-none">
+<div class="max-w-md mx-auto pointer-events-auto">
+<div class="bg-inverse-surface text-inverse-on-surface rounded-2xl p-3 px-4 shadow-xl flex items-center justify-between border border-white/10 backdrop-blur-md animate-bounce-short">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-primary-container">2 itens adicionados</div>
+<div class="font-headline-sm text-headline-sm font-bold text-white leading-tight">R$ 39,80</div>
+</div>
+</div>
+<button class="bg-tertiary-fixed hover:bg-tertiary-fixed-dim text-on-tertiary-fixed font-label-md text-label-md px-4 py-2.5 rounded-full active:scale-95 transition-transform flex items-center gap-1.5 shadow-sm font-bold">
+<span>Ver Carrinho</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Shared BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile h-16 bg-surface shadow-lg">
+<!-- Tab 1: Menu (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-primary rounded-full px-4 py-1.5 font-bold transition-transform duration-150 active:scale-95" href="#menu">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</a>
+<!-- Tab 2: Favorites -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95" href="#favorites">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm">Favorites</span>
+</a>
+<!-- Tab 3: Orders -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95" href="#orders">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<!-- Tab 4: Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95" href="#profile">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

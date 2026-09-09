@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meu Carrinho - Milk Pink</title>
+<!-- Google Fonts: Poppins & Open Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#484a00",
+            "surface-container-high": "#efe6e8",
+            "error": "#ba1a1a",
+            "primary": "#8c005a",
+            "inverse-primary": "#ffafd1",
+            "surface-container-highest": "#e9e0e3",
+            "primary-fixed": "#ffd8e6",
+            "surface-container": "#f5ebee",
+            "secondary-container": "#f2dedb",
+            "surface-container-low": "#fbf1f4",
+            "inverse-on-surface": "#f8eef1",
+            "on-primary-fixed-variant": "#8b0059",
+            "outline": "#8b707a",
+            "on-secondary-container": "#6f615f",
+            "on-primary-fixed": "#3d0025",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fff8f9",
+            "on-error": "#ffffff",
+            "surface-variant": "#e9e0e3",
+            "background": "#fff8f9",
+            "on-primary-container": "#ffccdf",
+            "secondary-fixed-dim": "#d5c2c0",
+            "surface-dim": "#e1d8da",
+            "outline-variant": "#debec9",
+            "surface": "#fff8f9",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#e7eb0f",
+            "on-tertiary-fixed": "#1c1d00",
+            "on-secondary-fixed-variant": "#514442",
+            "on-background": "#1f1a1c",
+            "on-secondary-fixed": "#231918",
+            "surface-tint": "#b60076",
+            "secondary": "#695b59",
+            "tertiary-fixed-dim": "#cace00",
+            "primary-container": "#b70077",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#dee200",
+            "on-surface-variant": "#57404a",
+            "primary-fixed-dim": "#ffafd1",
+            "secondary-fixed": "#f2dedb",
+            "on-primary": "#ffffff",
+            "tertiary": "#494a00",
+            "inverse-surface": "#342f31",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1f1a1c",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#616300"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-2xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-xs": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.75rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-2xl": "3rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Open Sans"],
+            "headline-md": ["Poppins"],
+            "label-sm": ["Poppins"],
+            "body-md": ["Open Sans"],
+            "label-md": ["Poppins"],
+            "body-sm": ["Open Sans"],
+            "headline-lg": ["Poppins"],
+            "display-lg-mobile": ["Poppins"],
+            "display-lg": ["Poppins"],
+            "headline-sm": ["Poppins"],
+            "title-md": ["Poppins"],
+            "label-lg": ["Poppins"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen pb-36">
+<!-- Top App Bar (Task-Focused with Back Action) -->
+<header class="fixed top-0 left-0 w-full z-40 bg-surface shadow-sm h-16 flex items-center justify-between px-gutter-mobile">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Voltar" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-primary text-xl">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Meu Carrinho (3 itens)</h1>
+<span class="font-label-sm text-label-sm text-outline block">Milk Pink Delivery</span>
+</div>
+</div>
+<div class="flex items-center">
+<button aria-label="Limpar carrinho" class="w-9 h-9 rounded-full flex items-center justify-center text-outline hover:text-error hover:bg-error-container/20 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">delete_sweep</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-gutter-mobile space-y-space-md max-w-lg mx-auto">
+<!-- Free Delivery Motivational Banner -->
+<section class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-sm shadow-sm border border-secondary-container">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">moped</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Faltam apenas R$ 18,30 para <span class="text-primary font-bold">Entrega Grátis</span></p>
+<div class="w-full bg-secondary-container h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-4/5"></div>
+</div>
+</div>
+</section>
+<!-- Cart Item Cards List -->
+<section class="space-y-space-sm">
+<!-- Item 1: Pistache com Nutella -->
+<article class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-secondary-container flex flex-col gap-space-sm relative">
+<div class="flex gap-space-sm items-start">
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container shrink-0 border border-secondary-container relative">
+<img class="w-full h-full object-cover" data-alt="A luscious gourmet milkshake served in a tall clear cup, layered with pistachio cream swirls, drizzled rich dark Nutella, and crowned with soft whipped cream. High key bright daylight photo in light pink studio setting, reflecting modern minimalist sweet shop aesthetics with soft warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEUNJPC4HiHwnNqc1aQ2j83xV7U6WrCFaO_rPiOpMkv2l0FKeU0DHD0tW4l8BnVj1uAl5ikv59Go9kc62jBxl2ftzZuHjw-XNeBVw5TSTPML8-2ztirj11Lpbx6heyFhC9ve0hzcHWxjZKKHAPM6v4jAPI-dlbwnU4AZo-9gGZJ6w-GfpLG4vfVw-uSchgLEMwszOoky_GQmdhEE0cVl4KriEVzgCNoX41XfZWXdqytxIcWzKTqsVE"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface leading-snug">Pistache com Nutella</h2>
+<span class="font-label-sm text-label-sm text-outline block">Tamanho: 500ml</span>
+</div>
+<!-- Remove Trash Button -->
+<button aria-label="Remover item" class="text-outline hover:text-error transition-colors p-1 -mr-1" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+<!-- Customization badge -->
+<div class="mt-1">
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary">add_circle</span>
+                + Calda de Nutella extra
+              </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-secondary-container">
+<span class="font-headline-sm text-headline-sm text-primary">R$ 27,90</span>
+<!-- Quantity Selector -->
+<div class="flex items-center bg-surface-container-low rounded-full p-0.5 border border-secondary-container">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors active:scale-95 shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-label-md text-label-md px-3 text-on-surface select-none">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 transition-opacity active:scale-95 shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 2: Chocolate Belga -->
+<article class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-secondary-container flex flex-col gap-space-sm relative">
+<div class="flex gap-space-sm items-start">
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container shrink-0 border border-secondary-container relative">
+<img class="w-full h-full object-cover" data-alt="Thick Belgian chocolate milkshake blended with velvety dairy milk and coated with chocolate shavings, displayed against a pristine warm pink background. Glossy textures, appetizing drip details, and studio illumination tailored for a high-end dessert aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI8poa7fiOUx_e5Da4XcNGIWKaOMNjIo52Dp-QfkEoTa5hzGeHzc9GKyTdflleu2oAsAfpN4b1hR3fIB4ov3ra6fHwR2JQStP0slebBfYtaG5cwg55QDdeMDQ-TthshOVy2mtIWX-QLmCQxvapWWlRpaJrBTxLi3Kok8LFRNEsIoRsFEV7yFo1Nzxj-1VustS4f0DwpJ6ykLgIwa32Ay1EjNii0rToXejauRTUCqcVd9djPC3otMEa"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface leading-snug">Chocolate Belga</h2>
+<div class="inline-flex items-center gap-1 bg-tertiary-fixed px-2 py-0.5 rounded-full mt-1">
+<span class="material-symbols-outlined text-xs text-on-tertiary-fixed">local_offer</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed font-bold">Semana do Chocolate</span>
+</div>
+</div>
+<button aria-label="Remover item" class="text-outline hover:text-error transition-colors p-1 -mr-1" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-outline block mt-1">Tamanho: 400ml</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-secondary-container">
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary">R$ 15,90</span>
+<span class="font-label-sm text-label-sm text-outline line-through">R$ 21,90</span>
+</div>
+<!-- Quantity Selector -->
+<div class="flex items-center bg-surface-container-low rounded-full p-0.5 border border-secondary-container">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors active:scale-95 shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-label-md text-label-md px-3 text-on-surface select-none">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 transition-opacity active:scale-95 shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 3: Morango Silvestre -->
+<article class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-secondary-container flex flex-col gap-space-sm relative">
+<div class="flex gap-space-sm items-start">
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container shrink-0 border border-secondary-container relative">
+<img class="w-full h-full object-cover" data-alt="Vibrant pastel strawberry milkshake topped with a cloud of airy whipped cream and whole ripe wild strawberries in a bright minimalist scene. Clean studio product photography, light cream background with gentle pink reflections and fresh joyful summer ambiance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApAh-JOvfLl1yKd9fDm7HWdtZZxxqWP8dbSdLeKzGZXDsl7DNJy8MHiyfR7dCeAVPJ--moL0M2mNm3CyrZ1zl1k_bMofCvpj2CMYwRi0C8LagLkNg5IQ7KjcCk14GJbNDz0d7oZkk9mAH-BEmXlqqDtgIhGI_ts7P7c_5slpPRL3Cf-pydM1G7i5rkWwFhfUxL8ipEerGcd9z5pr47NFIRujfnL_Sm0UVJzXhV0_QESwdcFbKD6fGO"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface leading-snug">Morango Silvestre</h2>
+<span class="font-label-sm text-label-sm text-outline block">Tamanho: 400ml</span>
+</div>
+<button aria-label="Remover item" class="text-outline hover:text-error transition-colors p-1 -mr-1" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Calda natural de frutas vermelhas</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-secondary-container">
+<span class="font-headline-sm text-headline-sm text-primary">R$ 17,90</span>
+<!-- Quantity Selector -->
+<div class="flex items-center bg-surface-container-low rounded-full p-0.5 border border-secondary-container">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors active:scale-95 shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-label-md text-label-md px-3 text-on-surface select-none">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 transition-opacity active:scale-95 shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Coupon Input Section -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-secondary-container space-y-space-sm">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1.5" for="coupon-code">
+<span class="material-symbols-outlined text-primary text-base">confirmation_number</span>
+        Cupom de Desconto
+      </label>
+<div class="flex items-center gap-space-xs">
+<div class="relative flex-1">
+<input class="w-full bg-secondary-container/40 border border-secondary-container rounded-full pl-4 pr-9 py-2.5 font-label-md text-label-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container uppercase" id="coupon-code" type="text" value="MILK10"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary text-lg">check_circle</span>
+</div>
+<button class="bg-surface-container-high text-primary hover:bg-secondary-container px-4 py-2.5 rounded-full font-label-md text-label-md active:scale-95 transition-all" type="button">
+          Aplicar
+        </button>
+</div>
+<!-- Applied Coupon Notification Tag -->
+<div class="flex items-center justify-between bg-primary-fixed/40 rounded-xl px-space-sm py-2 border border-primary-fixed">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-sm">sell</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">MILK10 aplicado</span>
+<span class="font-body-sm text-body-sm text-on-primary-fixed-variant">(-10%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-primary font-bold">-R$ 6,00</span>
+<button aria-label="Remover cupom" class="text-outline hover:text-error transition-colors flex items-center" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Order Summary Card -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-secondary-container space-y-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface border-b border-secondary-container pb-2">Resumo de Valores</h3>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-label-lg text-label-lg text-on-surface">R$ 61,70</span>
+</div>
+<div class="flex justify-between items-center text-primary">
+<span class="font-body-md text-body-md text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">local_offer</span>
+            Desconto
+          </span>
+<span class="font-label-lg text-label-lg text-primary font-bold">-R$ 6,00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-outline">delivery_dining</span>
+            Taxa de Entrega
+          </span>
+<span class="font-label-lg text-label-lg text-on-surface">R$ 5,00</span>
+</div>
+</div>
+<div class="border-t border-secondary-container pt-3 flex justify-between items-baseline">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Total a Pagar</span>
+<span class="font-body-sm text-body-sm text-outline">Em até 3x sem juros</span>
+</div>
+<div class="text-right">
+<span class="font-headline-lg text-headline-lg font-bold text-primary-container">R$ 60,70</span>
+</div>
+</div>
+</section>
+<!-- Cutlery / Napkins Toggle Bento Note -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-sm border border-secondary-container flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-base text-on-surface">eco</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Precisa de canudos e guardanapos?</p>
+<p class="font-body-sm text-body-sm text-outline">Ajude o meio ambiente evitando desperdício</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</main>
+<!-- Sticky Bottom CTA Area -->
+<footer class="fixed bottom-0 left-0 w-full z-40 bg-surface/95 backdrop-blur-md px-gutter-mobile py-3 shadow-lg border-none">
+<div class="max-w-lg mx-auto flex items-center gap-space-sm">
+<div class="hidden xs:flex flex-col shrink-0">
+<span class="font-label-sm text-label-sm text-outline">Total</span>
+<span class="font-headline-sm text-headline-sm text-primary-container font-bold">R$ 60,70</span>
+</div>
+<!-- Primary Action CTA Button -->
+<button class="flex-1 h-[52px] bg-primary-container hover:opacity-95 text-on-primary rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:scale-[0.97] transition-transform" type="button">
+<span>Continuar para Checkout</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

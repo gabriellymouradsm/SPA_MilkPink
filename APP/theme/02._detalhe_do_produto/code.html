@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Milk Pink - Pistache com Nutella</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#484a00",
+            "surface-container-high": "#efe6e8",
+            "error": "#ba1a1a",
+            "primary": "#8c005a",
+            "inverse-primary": "#ffafd1",
+            "surface-container-highest": "#e9e0e3",
+            "primary-fixed": "#ffd8e6",
+            "surface-container": "#f5ebee",
+            "secondary-container": "#f2dedb",
+            "surface-container-low": "#fbf1f4",
+            "inverse-on-surface": "#f8eef1",
+            "on-primary-fixed-variant": "#8b0059",
+            "outline": "#8b707a",
+            "on-secondary-container": "#6f615f",
+            "on-primary-fixed": "#3d0025",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fff8f9",
+            "on-error": "#ffffff",
+            "surface-variant": "#e9e0e3",
+            "background": "#fff8f9",
+            "on-primary-container": "#ffccdf",
+            "secondary-fixed-dim": "#d5c2c0",
+            "surface-dim": "#e1d8da",
+            "outline-variant": "#debec9",
+            "surface": "#fff8f9",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#e7eb0f",
+            "on-tertiary-fixed": "#1c1d00",
+            "on-secondary-fixed-variant": "#514442",
+            "on-background": "#1f1a1c",
+            "on-secondary-fixed": "#231918",
+            "surface-tint": "#b60076",
+            "secondary": "#695b59",
+            "tertiary-fixed-dim": "#cace00",
+            "primary-container": "#b70077",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#dee200",
+            "on-surface-variant": "#57404a",
+            "primary-fixed-dim": "#ffafd1",
+            "secondary-fixed": "#f2dedb",
+            "on-primary": "#ffffff",
+            "tertiary": "#494a00",
+            "inverse-surface": "#342f31",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1f1a1c",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#616300"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-2xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-xs": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.75rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-2xl": "3rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Open Sans"],
+            "headline-md": ["Poppins"],
+            "label-sm": ["Poppins"],
+            "body-md": ["Open Sans"],
+            "label-md": ["Poppins"],
+            "body-sm": ["Open Sans"],
+            "headline-lg": ["Poppins"],
+            "display-lg-mobile": ["Poppins"],
+            "display-lg": ["Poppins"],
+            "headline-sm": ["Poppins"],
+            "title-md": ["Poppins"],
+            "label-lg": ["Poppins"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- Mobile Screen Container -->
+<div class="max-w-md mx-auto min-h-screen flex flex-col bg-surface relative pb-32">
+<!-- Header with Back & Favorite (Task-focused Detail Screen) -->
+<header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md px-margin-mobile h-16 flex items-center justify-between">
+<button aria-label="Voltar" class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm hover:bg-surface-container active:scale-95 transition-all" onclick="window.history.back()">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Milk Pink</span>
+</div>
+<button aria-label="Favoritar" class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm hover:bg-surface-container active:scale-95 transition-all" id="favorite-btn">
+<span class="material-symbols-outlined" data-icon="favorite" id="fav-icon" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</header>
+<!-- Product Showcase Visuals -->
+<main class="flex-1 px-margin-mobile flex flex-col space-y-space-md pt-space-xs">
+<!-- Top Image Card -->
+<section class="relative w-full rounded-2xl bg-surface-container-lowest p-space-md flex flex-col items-center justify-center border border-outline-variant/40 shadow-sm overflow-hidden">
+<!-- Decorative subtle background glow -->
+<div class="absolute -top-12 -right-12 w-44 h-44 rounded-full bg-primary/5 blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-44 h-44 rounded-full bg-tertiary-fixed/30 blur-2xl pointer-events-none"></div>
+<!-- Launch Badge -->
+<div class="w-full flex justify-start items-center z-10">
+<span class="inline-flex items-center gap-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md px-3 py-1 rounded-full font-bold shadow-xs">
+<span class="material-symbols-outlined text-[16px] leading-none text-on-tertiary-fixed" data-icon="sparkles" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+            Lançamento
+          </span>
+</div>
+<!-- Product Image Placeholder https://lh3.googleusercontent.com/aida-public/AB6AXuC1glZJ_UwTG29IZbOzTNRCzuoxSijydyd2rkJ0vkif2YrDAa18PWy4WWEAesQuLVPwEafh4qn_2vh1Y_OB3sFAfLgd8ZpYaGI31Kd7AFjQRciKiGIV28KYtM1ZgM8wj0L0faVu6dAkSHHIPnLxgXdxW3WmAW9SyBLzUhiPyvXER5b3YDOp8oQpymRP2BlXxm1Dw5d0LXJzRgGpGdgSNFcMPFWrZZXHtLHl1K3f8Xvey1iMe_C-vrUcdbjlXNoFFKGhMw -->
+<div class="relative w-64 h-64 my-2 flex items-center justify-center">
+<img alt="Pistache com Nutella" class="w-full h-full object-contain drop-shadow-lg transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1kXgEfHqWYXdMP4Rbt2ItWPnjsuXTCKgrCpo4m2YCZIurghK9InJ3gFMdK1JOB-1_Cw_zqUJHcHzQ6RBlZtx276h8rRIrr9Y9dk4famr7XFY5vI1Gt6sXZKeM7PCbmGUn3PKWXrfU5mRZ5RysPHqw95KSQf4NbkuuJbRapLEs_E3VGgWmcFY7QodNB1bG2B2cuq5q5oip8GHeK4Ar2u9HCnjAnkSKk2hpHmLW2CEaT4rHOGLxZJeNY5uH0azZZIlebQ"/>
+</div>
+<!-- Indicator Pills -->
+<div class="flex items-center gap-1.5 mt-1">
+<span class="w-6 h-1.5 rounded-full bg-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+</div>
+</section>
+<!-- Info & Title Section -->
+<section class="space-y-space-xs">
+<div class="flex justify-between items-start">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-extrabold tracking-tight leading-tight">
+            Pistache com Nutella
+          </h1>
+</div>
+<div class="flex items-baseline gap-2 pt-1">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">R$ 23,90</span>
+<span class="font-body-md text-body-md line-through text-outline">R$ 26,90</span>
+<span class="font-label-sm text-label-sm font-bold text-tertiary-container bg-surface-container px-2 py-0.5 rounded-full ml-1">-11%</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant pt-1 leading-relaxed">
+          Creme de pistache artesanal, Nutella cremosa e pedaços de brownie crocante no fundo e no topo.
+        </p>
+</section>
+<!-- Customization Form -->
+<section class="space-y-space-lg pt-space-xs">
+<!-- Tamanho (Radio Pill Selectors) -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md font-bold text-on-surface">Escolha o Tamanho</h2>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-primary-fixed/40 px-2.5 py-0.5 rounded-full">Obrigatório</span>
+</div>
+<div aria-label="Tamanhos disponíveis" class="grid grid-cols-3 gap-2.5" role="radiogroup">
+<!-- Option 1: 300ml -->
+<label class="size-option relative flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/50 bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low text-center select-none">
+<input class="sr-only" name="product_size" type="radio" value="300"/>
+<span class="font-title-md text-title-md font-bold text-on-surface">300ml</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Padrão</span>
+</label>
+<!-- Option 2: 500ml [SELECTED] -->
+<label class="size-option relative flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-secondary-container/60 cursor-pointer transition-all text-center select-none">
+<input checked="" class="sr-only" name="product_size" type="radio" value="500"/>
+<span class="font-title-md text-title-md font-bold text-primary">500ml</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold mt-0.5">+R$ 4,00</span>
+</label>
+<!-- Option 3: 700ml -->
+<label class="size-option relative flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/50 bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low text-center select-none">
+<input class="sr-only" name="product_size" type="radio" value="700"/>
+<span class="font-title-md text-title-md font-bold text-on-surface">700ml</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">+R$ 7,00</span>
+</label>
+</div>
+</div>
+<!-- Adicionais (Checkboxes) -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md font-bold text-on-surface">Adicionais Gostosos</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Até 3 itens</span>
+</div>
+<div class="space-y-2.5">
+<!-- Adicional 1 -->
+<label class="flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors select-none">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded-[8px] text-primary focus:ring-primary border-outline-variant/80 cursor-pointer transition-colors" data-price="3.00" id="add-chantilly" type="checkbox"/>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Chantilly extra</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">+R$ 3,00</span>
+</label>
+<!-- Adicional 2 -->
+<label class="flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors select-none">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded-[8px] text-primary focus:ring-primary border-outline-variant/80 cursor-pointer transition-colors" data-price="3.50" id="add-brownie" type="checkbox"/>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Farofa de Brownie</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">+R$ 3,50</span>
+</label>
+<!-- Adicional 3 -->
+<label class="flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors select-none">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded-[8px] text-primary focus:ring-primary border-outline-variant/80 cursor-pointer transition-colors" data-price="4.00" id="add-nutella" type="checkbox"/>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Calda de Nutella na borda</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">+R$ 4,00</span>
+</label>
+</div>
+</div>
+<!-- Observações Especiais -->
+<div class="space-y-space-xs">
+<label class="font-title-md text-title-md font-bold text-on-surface block" for="instructions">Observações especiais</label>
+<div class="relative">
+<textarea class="w-full rounded-xl bg-surface-container-lowest border border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary p-3 font-body-md text-body-md text-on-surface placeholder:text-outline/80 resize-none transition-all" id="instructions" placeholder="Ex: sem calda na borda" rows="2"></textarea>
+</div>
+</div>
+<!-- Seletor de Quantidade -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40">
+<span class="font-title-md text-title-md font-bold text-on-surface">Quantidade</span>
+<div class="flex items-center gap-3 bg-secondary-container/50 p-1 rounded-full">
+<button aria-label="Diminuir quantidade" class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs hover:bg-surface active:scale-95 transition-all" id="qty-decrease" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface px-2 min-w-[20px] text-center" id="qty-display">1</span>
+<button aria-label="Aumentar quantidade" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-xs hover:opacity-90 active:scale-95 transition-all" id="qty-increase" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Barra Fixa Inferior (Sticky Bottom CTA Bar) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md px-margin-mobile py-3 max-w-md mx-auto">
+<button class="w-full h-14 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm font-semibold flex items-center justify-between px-6 shadow-lg shadow-primary/20 hover:opacity-95 active:scale-98 transition-all" id="add-to-order-btn" type="button">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span>Adicionar ao Pedido</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-bold" id="total-price">R$ 27,90</span>
+</span>
+</button>
+</div>
+</div>
+<script>
+    // Calculations & Dynamic Interactions
+    const BASE_PRICE = 23.90;
+    let sizeAdditional = 4.00; // 500ml default selected
+    let quantity = 1;
+    let isFavorite = false;
+
+    const sizeRadios = document.querySelectorAll('input[name="product_size"]');
+    const sizeLabels = document.querySelectorAll('.size-option');
+    const addCheckboxes = document.querySelectorAll('input[type="checkbox"][data-price]');
+    const totalPriceEl = document.getElementById('total-price');
+    const qtyDisplay = document.getElementById('qty-display');
+    const qtyDecreaseBtn = document.getElementById('qty-decrease');
+    const qtyIncreaseBtn = document.getElementById('qty-increase');
+    const favBtn = document.getElementById('favorite-btn');
+    const favIcon = document.getElementById('fav-icon');
+
+    function calculateTotal() {
+      let extras = 0;
+      addCheckboxes.forEach(cb => {
+        if (cb.checked) {
+          extras += parseFloat(cb.dataset.price);
+        }
+      });
+      const singleUnit = BASE_PRICE + sizeAdditional + extras;
+      const finalTotal = singleUnit * quantity;
+      totalPriceEl.textContent = `R$ ${finalTotal.toFixed(2).replace('.', ',')}`;
+    }
+
+    // Size Selection Handler
+    sizeRadios.forEach((radio, index) => {
+      radio.addEventListener('change', (e) => {
+        const val = e.target.value;
+        if (val === '300') sizeAdditional = 0.00;
+        if (val === '500') sizeAdditional = 4.00;
+        if (val === '700') sizeAdditional = 7.00;
+
+        sizeLabels.forEach((label, idx) => {
+          if (idx === index) {
+            label.className = "size-option relative flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-secondary-container/60 cursor-pointer transition-all text-center select-none";
+            const title = label.querySelector('span:first-of-type');
+            if (title) title.className = "font-title-md text-title-md font-bold text-primary";
+          } else {
+            label.className = "size-option relative flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/50 bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low text-center select-none";
+            const title = label.querySelector('span:first-of-type');
+            if (title) title.className = "font-title-md text-title-md font-bold text-on-surface";
+          }
+        });
+
+        calculateTotal();
+      });
+    });
+
+    // Checkboxes Listeners
+    addCheckboxes.forEach(cb => {
+      cb.addEventListener('change', calculateTotal);
+    });
+
+    // Quantity Handlers
+    qtyIncreaseBtn.addEventListener('click', () => {
+      quantity += 1;
+      qtyDisplay.textContent = quantity;
+      calculateTotal();
+    });
+
+    qtyDecreaseBtn.addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity -= 1;
+        qtyDisplay.textContent = quantity;
+        calculateTotal();
+      }
+    });
+
+    // Favorite Toggle
+    favBtn.addEventListener('click', () => {
+      isFavorite = !isFavorite;
+      if (isFavorite) {
+        favIcon.style.fontVariationSettings = "'FILL' 1";
+        favIcon.classList.add('text-primary');
+      } else {
+        favIcon.style.fontVariationSettings = "'FILL' 0";
+      }
+    });
+
+    // Initial calculation check
+    calculateTotal();
+  </script>
+</body></html>
