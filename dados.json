@@ -1,0 +1,106 @@
+{
+  "loja": {
+    "nome": "Milk Pink",
+    "whatsapp": "5511998838154",
+    "mensagemPadrao": "Olá! Vim pelo cardápio online."
+  },
+  "tamanhos": [
+    { "id": "300ml", "nome": "300 ml", "adicional": 0.00 },
+    { "id": "500ml", "nome": "500 ml", "adicional": 4.00, "padrao": true },
+    { "id": "700ml", "nome": "700 ml", "adicional": 8.00 }
+  ],
+  "adicionais": [
+    { "id": "chantilly", "nome": "Chantilly Extra", "preco": 3.00, "icon": "cookie" },
+    { "id": "calda_extra", "nome": "Calda Extra de Chocolate", "preco": 2.50, "icon": "water_drop" },
+    { "id": "granulado", "nome": "Granulado Colorido", "preco": 2.00, "icon": "grain" },
+    { "id": "brownie", "nome": "Pedaços de Brownie", "preco": 4.50, "icon": "bakery_dining" },
+    { "id": "nutella_borda", "nome": "Borda de Nutella", "preco": 5.00, "icon": "favorite" }
+  ],
+  "categorias": [
+    {
+      "id": "classicos",
+      "nome": "Clássicos",
+      "icon": "local_drink",
+      "produtos": [
+        {
+          "id": "ms-001",
+          "nome": "Chocolate Belga",
+          "descricao": "Chocolate belga cremoso, sorvete de creme artesanal e chantilly.",
+          "preco": 18.90,
+          "icon": "cookie",
+          "disponivel": true,
+          "promocao": {
+            "precoPromocional": 15.90,
+            "motivo": "Semana do Chocolate"
+          }
+        },
+        {
+          "id": "ms-002",
+          "nome": "Morango Silvestre",
+          "descricao": "Morango fresco, sorvete de morango e calda artesanal de pedaços.",
+          "preco": 17.90,
+          "icon": "nutrition",
+          "disponivel": true
+        },
+        {
+          "id": "ms-003",
+          "nome": "Baunilha Premium",
+          "descricao": "Fava de baunilha de Madagascar, leite fresco e crocante de amendoim.",
+          "preco": 16.90,
+          "icon": "icecream",
+          "disponivel": true
+        }
+      ]
+    },
+    {
+      "id": "especiais",
+      "nome": "Especiais da Casa",
+      "icon": "auto_awesome",
+      "produtos": [
+        {
+          "id": "ms-004",
+          "nome": "Oreo Trufado",
+          "descricao": "Biscoito Oreo crocante, ganache de chocolate e generoso chantilly.",
+          "preco": 22.90,
+          "icon": "bakery_dining",
+          "disponivel": true
+        },
+        {
+          "id": "ms-005",
+          "nome": "Pistache com Nutella",
+          "descricao": "Gelato de pistache italiano, Nutella e pedaços de brownie.",
+          "preco": 26.90,
+          "icon": "star",
+          "disponivel": true,
+          "promocao": {
+            "precoPromocional": 23.90,
+            "motivo": "Lançamento"
+          }
+        }
+      ]
+    },
+    {
+      "id": "veganos",
+      "nome": "Veganos",
+      "icon": "spa",
+      "produtos": [
+        {
+          "id": "ms-006",
+          "nome": "Açaí com Granola",
+          "descricao": "Açaí cremoso, leite de coco, granola artesanal e banana fatiada.",
+          "preco": 21.90,
+          "icon": "energy_savings_leaf",
+          "disponivel": true
+        },
+        {
+          "id": "ms-007",
+          "nome": "Cacau 70%",
+          "descricao": "Chocolate nobre 70%, leite de aveia e pasta pura de amendoim.",
+          "preco": 20.90,
+          "icon": "eco",
+          "disponivel": false
+        }
+      ]
+    }
+  ]
+}
