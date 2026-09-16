@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Milk Pink - Cardápio Digital de Milkshakes</title>
 
+  <!-- PWA Metadata -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#8c005a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Milk Pink">
+
   <!-- Google Fonts: Poppins & Open Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -92,15 +99,6 @@
 
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md border-b border-outline-variant/40 shadow-sm">
-
-     <!-- PWA -->
-  <link rel="manifest" href="./manifest.json">
-
-  <!-- iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Minha aplicação">
-
     <div class="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2">
         <div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-xl shadow-sm">
@@ -119,7 +117,7 @@
     </div>
   </header>
 
-  <!-- Error Alert Banner (JSON Fail) -->
+  <!-- Error Alert Banner -->
   <div id="error-banner" class="max-w-md mx-auto px-4 pt-20 hidden">
     <div class="bg-error-container text-error rounded-2xl p-4 border border-error/20 flex items-start gap-3">
       <span class="material-symbols-outlined text-2xl shrink-0 mt-0.5">error</span>
@@ -162,7 +160,6 @@
 
     <!-- Category Tabs -->
     <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
-      <!-- Dynamic category tabs will be rendered here -->
     </div>
 
     <!-- Catalog Section Title -->
@@ -176,7 +173,6 @@
 
     <!-- Product Cards Container -->
     <div id="product-list" class="flex flex-col gap-3.5 mb-6">
-      <!-- Loading Skeleton / Dynamic items -->
       <div class="p-8 text-center text-neutral-muted font-heading text-sm animate-pulse">Carregando delicioso cardápio...</div>
     </div>
   </main>
@@ -206,7 +202,6 @@
   <div id="modal-product" class="fixed inset-0 z-50 modal-backdrop hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-surface w-full max-w-md rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-200">
 
-      <!-- Modal Header -->
       <div class="relative bg-secondary-pink/50 p-4 pb-6 border-b border-outline-variant/40 flex flex-col items-center">
         <button id="close-product-modal" class="absolute top-3 right-3 p-2 rounded-full bg-surface/80 text-neutral-dark hover:bg-surface transition-all active:scale-95 shadow-sm">
           <span class="material-symbols-outlined text-xl">close</span>
@@ -218,32 +213,25 @@
         <p id="modal-product-desc" class="text-xs text-neutral-muted text-center max-w-xs mt-1 leading-relaxed">--</p>
       </div>
 
-      <!-- Modal Body (Scrollable) -->
       <div class="p-4 overflow-y-auto flex-grow flex flex-col gap-5 no-scrollbar">
 
-        <!-- Size Selector -->
         <div>
           <label class="block font-heading font-bold text-xs text-neutral-dark mb-2 uppercase tracking-wider">Escolha o Tamanho <span class="text-primary">*</span></label>
           <div id="modal-size-options" class="grid grid-cols-3 gap-2">
-            <!-- Dynamic sizes -->
           </div>
         </div>
 
-        <!-- Toppings Selector -->
         <div>
           <label class="block font-heading font-bold text-xs text-neutral-dark mb-2 uppercase tracking-wider">Adicionais & Caldas</label>
           <div id="modal-topping-options" class="flex flex-col gap-2">
-            <!-- Dynamic toppings -->
           </div>
         </div>
 
-        <!-- Observações -->
         <div>
           <label for="modal-notes" class="block font-heading font-bold text-xs text-neutral-dark mb-1 uppercase tracking-wider">Observações</label>
           <textarea id="modal-notes" rows="2" class="w-full text-xs font-body p-2.5 rounded-xl border border-outline-variant/80 focus:border-primary focus:ring-1 focus:ring-primary outline-none bg-surface-container-lowest" placeholder="Ex: Caprichar no chantilly, sem amendoim..."></textarea>
         </div>
 
-        <!-- Quantity Controls -->
         <div class="flex items-center justify-between bg-surface-container-low p-3 rounded-2xl border border-outline-variant/40">
           <span class="font-heading font-bold text-xs text-neutral-dark">Quantidade:</span>
           <div class="flex items-center gap-3">
@@ -258,7 +246,6 @@
         </div>
       </div>
 
-      <!-- Modal Footer -->
       <div class="p-4 bg-surface border-t border-outline-variant/40 flex items-center justify-between gap-3">
         <div>
           <span class="text-[10px] text-neutral-muted block uppercase font-heading">Total do Item</span>
@@ -276,7 +263,6 @@
   <div id="modal-cart" class="fixed inset-0 z-50 modal-backdrop hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-surface w-full max-w-md rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
 
-      <!-- Cart Header -->
       <div class="p-4 border-b border-outline-variant/40 flex items-center justify-between bg-surface-container-lowest">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-2xl">shopping_bag</span>
@@ -287,12 +273,9 @@
         </button>
       </div>
 
-      <!-- Cart Content -->
       <div id="cart-body" class="p-4 overflow-y-auto flex-grow flex flex-col gap-3 no-scrollbar">
-        <!-- Dynamic cart items or empty state -->
       </div>
 
-      <!-- Cart Footer -->
       <div id="cart-footer" class="p-4 bg-surface border-t border-outline-variant/40 flex flex-col gap-3">
         <div class="flex justify-between items-center font-heading">
           <span class="text-xs text-neutral-muted uppercase">Subtotal</span>
@@ -310,7 +293,6 @@
   <div id="modal-checkout" class="fixed inset-0 z-50 modal-backdrop hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-surface w-full max-w-md rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
 
-      <!-- Header -->
       <div class="p-4 border-b border-outline-variant/40 flex items-center justify-between bg-surface-container-lowest">
         <div class="flex items-center gap-2">
           <button id="back-to-cart-from-checkout" class="p-1 rounded-full hover:bg-surface-container text-neutral-dark">
@@ -323,7 +305,6 @@
         </button>
       </div>
 
-      <!-- Checkout Form -->
       <form id="checkout-form" class="p-4 overflow-y-auto flex-grow flex flex-col gap-4 no-scrollbar">
         <div>
           <label for="input-nome" class="block font-heading font-bold text-xs text-neutral-dark mb-1">Nome Completo <span class="text-primary">*</span></label>
@@ -441,14 +422,12 @@
         </button>
       </div>
 
-      <!-- Processing State -->
       <div id="payment-processing" class="hidden py-8 flex flex-col items-center text-center">
         <div class="w-12 h-12 border-4 border-primary-container border-t-transparent rounded-full animate-spin mb-4"></div>
         <h4 class="font-heading font-bold text-base text-neutral-dark">Simulando autorização...</h4>
         <p class="text-xs text-neutral-muted mt-1">Conectando ao gateway financeiro fictício.</p>
       </div>
 
-      <!-- Approved State -->
       <div id="payment-approved" class="hidden py-6 flex flex-col items-center text-center">
         <div class="w-14 h-14 rounded-full bg-pastel-mint text-emerald-800 flex items-center justify-center mb-3">
           <span class="material-symbols-outlined text-4xl">check</span>
@@ -475,7 +454,6 @@
       <p class="text-xs text-neutral-muted mb-4">Clique no botão abaixo para enviar o resumo diretamente ao nosso atendimento via WhatsApp.</p>
 
       <div id="order-summary-box" class="w-full bg-surface-container-lowest p-3 rounded-2xl border border-outline-variant/60 text-left text-xs font-body mb-5 max-h-40 overflow-y-auto no-scrollbar">
-        <!-- Dynamic order summary view -->
       </div>
 
       <a id="whatsapp-redirect-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold text-sm py-3.5 px-4 rounded-full active:scale-95 transition-all shadow-lg flex items-center justify-center gap-2">
@@ -489,46 +467,19 @@
     </div>
   </div>
 
-  <!-- Main JavaScript application -->
-  <script src="app.js">
-    
+  <!-- JS Principal da Aplicação -->
+  <script src="app.js"></script>
+
+  <!-- Registro do Service Worker -->
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
           .register("./sw.js")
-          .then((registration) => {
-            console.log("Service Worker registrado:", registration.scope);
-          })
-          .catch((error) => {
-            console.error("Erro ao registrar o Service Worker:", error);
-          });
+          .then((reg) => console.log("Service Worker registrado com sucesso:", reg.scope))
+          .catch((err) => console.error("Falha ao registrar Service Worker:", err));
       });
     }
   </script>
-
-  <script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
-
-    const CACHE_NAME = 'cool-cache';
-
-// Add whichever assets you want to pre-cache here:
-const PRECACHE_ASSETS = [
-    '/assets/',
-    '/src/'
-]
-
-// Listener for the install event - pre-caches our assets list on service worker install.
-self.addEventListener('install', event => {
-    event.waitUntil((async () => {
-        const cache = await caches.open(CACHE_NAME);
-        cache.addAll(PRECACHE_ASSETS);
-    })());
-});
-</script>
-
-  
 </body>
 </html>
