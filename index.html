@@ -492,7 +492,8 @@
   <!-- Main JavaScript application -->
   <script src="app.js">
     
- if ("serviceWorker" in navigator) {
+  <script>
+    if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
           .register("./sw.js")
@@ -504,7 +505,6 @@
           });
       });
     }
-    
   </script>
 </body>
 </html>
