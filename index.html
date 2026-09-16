@@ -92,6 +92,15 @@
 
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md border-b border-outline-variant/40 shadow-sm">
+
+     <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Minha aplicação">
+
     <div class="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2">
         <div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-xl shadow-sm">
@@ -481,6 +490,21 @@
   </div>
 
   <!-- Main JavaScript application -->
-  <script src="app.js"></script>
+  <script src="app.js">
+    
+ if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .then((registration) => {
+            console.log("Service Worker registrado:", registration.scope);
+          })
+          .catch((error) => {
+            console.error("Erro ao registrar o Service Worker:", error);
+          });
+      });
+    }
+    
+  </script>
 </body>
 </html>
